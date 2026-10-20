@@ -21,7 +21,7 @@ function Balloon({ startAfter = 3000, duration = 15000 }) {
   }, [startAfter, duration]);
   return (
     start && (
-      <Div show={show}>
+      <Div $show={show}>
         <div className="balloon__container">
           <button onClick={() => setShow(false)} className="balloon__close" />
           <div className="balloon__header">
@@ -69,7 +69,7 @@ const Div = styled.div`
   position: absolute;
   display: block;
   opacity: 0;
-  animation: ${({ show }) => (show ? fadein : fadeout)} 1s forwards;
+  animation: ${({ $show }) => ($show ? fadein : fadeout)} 1s forwards;
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.4));
   .balloon__container {
     position: absolute;

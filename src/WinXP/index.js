@@ -75,8 +75,8 @@ const reducer = (state, action = { type: '' }) => {
           state.apps.length > 1
             ? FOCUSING.WINDOW
             : state.icons.find(icon => icon.isFocus)
-            ? FOCUSING.ICON
-            : FOCUSING.DESKTOP,
+              ? FOCUSING.ICON
+              : FOCUSING.DESKTOP,
       };
     case FOCUS_APP: {
       const apps = state.apps.map(app =>
@@ -288,7 +288,7 @@ function WinXP() {
       ref={ref}
       onMouseUp={onMouseUpDesktop}
       onMouseDown={onMouseDownDesktop}
-      state={state.powerState}
+      $state={state.powerState}
     >
       <Icons
         icons={state.icons}
@@ -352,7 +352,7 @@ const Container = styled.div`
   position: relative;
   background: url(https://i.imgur.com/Zk6TR5k.jpg) no-repeat center center fixed;
   background-size: cover;
-  animation: ${({ state }) => animation[state]} 5s forwards;
+  animation: ${({ $state }) => animation[$state]} 5s forwards;
   *:not(input):not(textarea) {
     user-select: none;
   }
